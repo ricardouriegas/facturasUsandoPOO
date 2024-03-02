@@ -1,0 +1,53 @@
+<diagram program="umletino" version="15.1"><zoom_level>12</zoom_level><help_text>Space for diagram note</help_text><element><id>UMLClass</id><coordinates><x>216</x><y>180</y><w>252</w><h>228</h></coordinates><panel_attributes>*Persona*
+--
+- nombre: String
+- apellido: String
+- rfc: String
+- direccion fiscal: String
+- email: String
+- esPersonaMoral : Boolean	
+--
++ modificarDatos()
++ toString()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>552</x><y>828</y><w>252</w><h>228</h></coordinates><panel_attributes>*RFC*
+--
+- nombreCompleto: String
+- direccionFiscal: String
+- email: String
+- tipo: Boolean
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>204</x><y>828</y><w>252</w><h>228</h></coordinates><panel_attributes>*Factura*
+--
+- concepto: String
+- monto: Double
+- IVA: Double
+- montoTotal: Double
+- UUID: String
+- Fecha: Date
+- RFC: RFC
+- validez: Bool
+--
++ toString()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>324</x><y>732</y><w>36</w><h>120</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>444</x><y>924</y><w>132</w><h>48</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;90;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>216</x><y>516</y><w>252</w><h>228</h></coordinates><panel_attributes>*ManejadorDeFacturas*
+--
+--
++ guardar(Factura: factura)
++ borrar(Factura: factura)
++ listarFacturasRecibidas(Date: fechaInicial, Date: fechaFinal	)
++ listarFacturasEmitadas(Date: fechaInicial, Date: fechaFinal)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>324</x><y>396</y><w>36</w><h>144</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>UMLActor</id><coordinates><x>1176</x><y>324</y><w>72</w><h>132</h></coordinates><panel_attributes>Usuario</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>1188</x><y>132</y><w>228</w><h>48</h></coordinates><panel_attributes>Guardar Personas fiscales</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>1476</x><y>348</y><w>228</w><h>48</h></coordinates><panel_attributes>Modificar Datos de 
+Personas Fiscales</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>1416</x><y>204</y><w>144</w><h>60</h></coordinates><panel_attributes>Guardar Factura
+recibida</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>1476</x><y>276</y><w>144</w><h>60</h></coordinates><panel_attributes>Borrar Factura
+recibida</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>1500</x><y>480</y><w>144</w><h>48</h></coordinates><panel_attributes>Emitir Factura</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>1524</x><y>408</y><w>144</w><h>60</h></coordinates><panel_attributes>Cancelar Factura
+Emitida</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>1380</x><y>540</y><w>144</w><h>60</h></coordinates><panel_attributes>Listar facturas 
+Recibidas</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>1260</x><y>588</y><w>144</w><h>60</h></coordinates><panel_attributes>Listar Facturas 
+Emitidas</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>1128</x><y>624</y><w>144</w><h>48</h></coordinates><panel_attributes>Consultar Factura</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1200</x><y>168</y><w>132</w><h>180</h></coordinates><panel_attributes></panel_attributes><additional_attributes>90;10;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>1224</x><y>336</y><w>276</w><h>60</h></coordinates><panel_attributes></panel_attributes><additional_attributes>210;30;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1224</x><y>228</y><w>216</w><h>132</h></coordinates><panel_attributes></panel_attributes><additional_attributes>160;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>1224</x><y>300</y><w>276</w><h>72</h></coordinates><panel_attributes></panel_attributes><additional_attributes>210;10;10;40</additional_attributes></element><element><id>Relation</id><coordinates><x>1224</x><y>384</y><w>300</w><h>144</h></coordinates><panel_attributes></panel_attributes><additional_attributes>230;100;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1224</x><y>372</y><w>324</w><h>84</h></coordinates><panel_attributes></panel_attributes><additional_attributes>250;50;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1224</x><y>396</y><w>240</w><h>168</h></coordinates><panel_attributes></panel_attributes><additional_attributes>180;120;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1212</x><y>432</y><w>144</w><h>180</h></coordinates><panel_attributes></panel_attributes><additional_attributes>100;130;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1188</x><y>432</y><w>48</w><h>216</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;160;20;10</additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>1380</x><y>0</y><w>144</w><h>48</h></coordinates><panel_attributes>guardar archivo</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1284</x><y>12</y><w>144</w><h>144</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes><additional_attributes>10;100;80;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1464</x><y>36</y><w>108</w><h>192</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes><additional_attributes>30;140;10;10</additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>1752</x><y>228</y><w>144</w><h>48</h></coordinates><panel_attributes>eliminar archivo</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1608</x><y>240</y><w>168</w><h>84</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes><additional_attributes>10;50;120;10</additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>1548</x><y>720</y><w>144</w><h>48</h></coordinates><panel_attributes>leer archivo</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1332</x><y>636</y><w>240</w><h>132</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes><additional_attributes>10;10;180;90</additional_attributes></element><element><id>Relation</id><coordinates><x>1440</x><y>588</y><w>156</w><h>168</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes><additional_attributes>10;10;100;120</additional_attributes></element><element><id>Relation</id><coordinates><x>1584</x><y>516</y><w>108</w><h>228</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes><additional_attributes>10;10;30;170</additional_attributes></element><element><id>Relation</id><coordinates><x>1188</x><y>660</y><w>396</w><h>120</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes><additional_attributes>10;10;310;80</additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>1824</x><y>348</y><w>156</w><h>48</h></coordinates><panel_attributes>Modificar un 
+archivo</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1692</x><y>348</y><w>156</w><h>48</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1656</x><y>384</y><w>240</w><h>72</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes><additional_attributes>10;40;172;10</additional_attributes></element></diagram>
