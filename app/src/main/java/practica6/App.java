@@ -1,6 +1,7 @@
 package practica6;
 
-import java.io.File;
+import java.io.*;
+import java.util.ArrayList;
 
 public class App{
 
@@ -17,10 +18,8 @@ public class App{
 
     void run(){
         verificacionInicial();
-
-    
-
-    }
+        
+    }   
 
     /**
      * Función que verifica si existen los archivos necesarios para el funcionamiento del programa
@@ -34,7 +33,7 @@ public class App{
 
     /**
      * Menú principal de la aplicación
-     * @autor Joshua Arrazola
+     * @author Joshua Arrazola
       */
     void menu(){
         System.out.println("1) Guardar persona fiscal");
@@ -47,4 +46,37 @@ public class App{
         System.out.println("8) Listar facturas emitidas de un año-mes específico");
         System.out.println("9) Consultar factura por su identificador fiscal");
     }
+
+    /**
+     * Función que gestiona la serialización de la aplicación
+     * @author Joshua Arrazola
+     * 
+     * @param <T> Plantilla genérica del ArrayList
+     * @param path Ruta del objeto a escribir
+     * @param list ArrayList del objeto a escribir
+     * @param clazz Especificación de la clase del ArrayList
+      */
+    <T> void serialize(String path, ArrayList<T> list, Class<T> clazz){
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path))){
+            oos.writeObject(list);
+        } catch (Exception e) { }
+    }
+    
+    /**
+     * Función que gestiona la recuperación de la información del ArrayList
+     * @author Joshua Arrazola
+     * 
+     * @param <T> Plantilla genérica de la clase del ArrayList a retornar
+     * @param path Ruta del archivo a recuperar
+     * @param clazz Clase que compone el ArrayList a recuperar
+     * @return ArrayList<T> lista
+      */
+    @SuppressWarnings("unchecked")
+    <T> ArrayList<T> deserialize(String path, Class<T> clazz){
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path))){
+            return (ArrayList<T>) ois.readObject();
+        } catch (Exception e) { }
+        return null;
+    }
+
 };
