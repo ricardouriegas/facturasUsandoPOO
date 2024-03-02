@@ -1,6 +1,8 @@
 package practica6;
 
-public class Factura {
+import java.io.Serializable;
+
+public class Factura implements Serializable {
     /**
      * Identificador
      * Emisor : PersonaFactura

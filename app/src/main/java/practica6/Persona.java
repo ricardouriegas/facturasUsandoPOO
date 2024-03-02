@@ -50,11 +50,11 @@ public class Persona implements Serializable {
         this.email = email;
     }
 
-    public Boolean getEsPersonaMoral() {
+    public Boolean getEsPersonaFisica() {
         return this.esPersonaFisica;
     }
 
-    public void setEsPersonaMoral(Boolean esPersonaFisica) {
+    public void setEsPersonaFisica(Boolean esPersonaFisica) {
         this.esPersonaFisica = esPersonaFisica;
     }
 
@@ -74,7 +74,6 @@ public class Persona implements Serializable {
         "\nRFC: " + rfc + 
         "\nDirección Fiscal: " + direccionFiscal + 
         "\nEmail: " + email + 
-        "\nEs Persona Moral: " + (esPersonaFisica ? "Sí" : "No") + "\n";
+        "\n Tipo de persona: " + (esPersonaFisica ? "Física" : "Moral") + "\n";
     }
-
 }
