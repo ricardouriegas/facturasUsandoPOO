@@ -8,7 +8,7 @@ public class Persona implements Serializable {
     private String rfc;
     private String direccionFiscal;
     private String email;
-    private Boolean esPersonaMoral;
+    private Boolean esPersonaFisica;
 
     public String getNombre() {
         return this.nombre;
@@ -51,30 +51,30 @@ public class Persona implements Serializable {
     }
 
     public Boolean getEsPersonaMoral() {
-        return this.esPersonaMoral;
+        return this.esPersonaFisica;
     }
 
-    public void setEsPersonaMoral(Boolean esPersonaMoral) {
-        this.esPersonaMoral = esPersonaMoral;
+    public void setEsPersonaMoral(Boolean esPersonaFisica) {
+        this.esPersonaFisica = esPersonaFisica;
     }
 
-    Persona(String nombre, String apellido, String rfc, String direccionFiscal, String email, Boolean esPersonaMoral){
+    Persona(String nombre, String apellido, String rfc, String direccionFiscal, String email, Boolean esPersonaFisica){
         this.nombre = nombre;
         this.apellido = apellido;
         this.rfc = rfc;
         this.direccionFiscal = direccionFiscal;
         this.email = email;
-        this.esPersonaMoral = esPersonaMoral;
+        this.esPersonaFisica = esPersonaFisica;
     }
 
     @Override
     public String toString() {
         return "Nombre: " + nombre + 
-        "\nApellido: " + apellido + 
+        ((esPersonaFisica) ? "\nApellido :" + apellido : "") +  
         "\nRFC: " + rfc + 
         "\nDirección Fiscal: " + direccionFiscal + 
         "\nEmail: " + email + 
-        "\nEs Persona Moral: " + (esPersonaMoral ? "Sí" : "No") + "\n";
+        "\nEs Persona Moral: " + (esPersonaFisica ? "Sí" : "No") + "\n";
     }
 
 }

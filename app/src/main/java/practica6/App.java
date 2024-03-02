@@ -2,14 +2,16 @@ package practica6;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class App{
+    final Scanner in = new Scanner(System.in);
 
     // Se definen los paths de todas las carpetas
-    String appPath = new File("").getAbsolutePath() + "/";
-    String personasFiscalesFile = appPath + "/personasFiscales/";
-    String facturasRecibidasFile = appPath + "/facturasRecibidas/";
-    String facturarEmitidasFile = appPath + "/facturasEmitidas/";
+    final String appPath = new File("").getAbsolutePath() + "/";
+    final String personasFiscalesFile = appPath + "/personasFiscales/";
+    final String facturasRecibidasFile = appPath + "/facturasRecibidas/";
+    final String facturarEmitidasFile = appPath + "/facturasEmitidas/";
 
     public static void main(String[] args) {
         App app = new App();
@@ -18,6 +20,12 @@ public class App{
 
     void run(){
         verificacionInicial();
+        
+        // Deserialización de objetos del programa
+        ArrayList<Persona> personasFiscales = deserialize(personasFiscalesFile + "personas.obj", Persona.class);
+
+        Persona usuarioInicial = crearUsuarioInicial();
+
         
     }   
 
@@ -63,7 +71,7 @@ public class App{
     }
     
     /**
-     * Función que gestiona la recuperación de la información del ArrayList
+     * Función que gestiona la recuperación de la información delos .obj (Proceso de deserialización1)
      * @author Joshua Arrazola
      * 
      * @param <T> Plantilla genérica de la clase del ArrayList a retornar
@@ -73,10 +81,52 @@ public class App{
       */
     @SuppressWarnings("unchecked")
     <T> ArrayList<T> deserialize(String path, Class<T> clazz){
+        if(!(new File(path).exists())) return new ArrayList<>();
+
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path))){
             return (ArrayList<T>) ois.readObject();
         } catch (Exception e) { }
         return null;
     }
 
+    Persona crearUsuarioInicial(){
+        Boolean esPersonaFisica;
+        
+        do {
+            System.out.println("¿Eres una persona física?");
+            System.out.println("1. Sí");
+            System.out.println("2. No");
+            int opc = Integer.parseInt(in.nextLine());
+
+            if(opc==1){
+                esPersonaFisica = true;
+                break;
+            }  else if(opc==2) {
+                esPersonaFisica = false;
+                break;
+            }
+        } while (true);
+        
+        System.out.println("Ingresa tu nombre: ");
+        String name = in.nextLine();
+
+        String apellido;
+        if(esPersonaFisica){
+            System.out.println("Ingresa tu apellido: ");
+            apellido = in.nextLine();
+        } else apellido = "";
+
+        // -----------------------------------------------
+        // todo: Verificar que el RFC no se encuentre repetido
+        System.out.println("Ingresa el rfc: ");
+        String rfc = in.nextLine();
+        // -----------------------------------------------
+        System.out.println("Ingresa tu dirección fiscal: ");
+        String direccionFiscal = in.nextLine();
+
+        System.out.println("Ingresa tu email: ");
+        String email = in.nextLine();
+
+        return new Persona(name, apellido, rfc, direccionFiscal, email, esPersonaFisica);
+    }
 };
