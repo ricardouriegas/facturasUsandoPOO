@@ -12,6 +12,11 @@ import java.util.ArrayList;
   */
 
 public class FileManagement {
+    final private static String appPath = new File("").getAbsolutePath() + "/";
+    final private static String personasFiscalesFile = appPath + "personasFiscales/";
+    final private static String facturasRecibidasFile = appPath + "facturasRecibidas/";
+    final private static String facturarEmitidasFile = appPath + "facturasEmitidas/";
+    
     /**
      * Función que gestiona la serialización de la aplicación
      * 
@@ -44,5 +49,14 @@ public class FileManagement {
             return (ArrayList<T>) ois.readObject();
         } catch (Exception e) { }
         return null;
+    }
+
+    /**
+     * Función que verifica si existen los archivos necesarios para el funcionamiento del programa
+      */
+    public static void verificacionInicial(){
+        if(!new File(personasFiscalesFile).exists()) new File(personasFiscalesFile).mkdirs();
+        if(!new File(facturasRecibidasFile).exists()) new File(facturasRecibidasFile).mkdirs();
+        if(!new File(facturarEmitidasFile).exists()) new File(facturarEmitidasFile).mkdirs();
     }
 }

@@ -1,17 +1,24 @@
 # Práctica 6: Facturas
 
 ## Funciones
+### Menú principal
+1. Datos fiscales de empresa
+  * Mostrar datos fiscales
+  * Modificar datos fiscales
+2. Catálogo de personas fiscales
+  * Listar personas fiscales
+  * Agregar persona fiscal
+  * Modificar persona fiscal
+3. Gestión de facturas recibidas
+  * Listar facturas recibidas
+  * Guardar nueva factura recibida
+  * Borrar factura recibida
+4. Gestión de facturas emitidas
+  * Listar facturas emitidas
+  * Guardar nueva factura emitida
+  * Cancelar factura emitida
+5. Mostrar detalles de factura
 
-1. Guardar personas fiscales
-2. Guardar datos fiscales del usuario.
-3. Modificar datos de personas fiscales
-4. Guardar factura recibida
-5. Borrar factura recibida
-6. Emitir factura
-7. Cancelar factura emitida
-8. Listar facturas recibidas de un año-mes específico
-9. Listar facturas emitidas de un año-mes específico
-10. Consultar factura(detalle) por su identificador fiscal
 
 ## Objetos
 
