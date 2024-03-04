@@ -12,7 +12,7 @@ public class App{
 
     void run(){
         FileManagement.verificacionInicial();
-        
+
         // Manejador de personas
         ManejadorPersona mp = new ManejadorPersona();
         ManejadorFactura mf = new ManejadorFactura();
@@ -20,8 +20,27 @@ public class App{
         int opc;
         do {
             System.out.println("=== Bienvenido al sistema de facturas de Ficticia S.A. de C.V. ===");
-            mostrarMenuPrincipal();
+            Menus.mostrarMenuPrincipal();
             opc = Integer.parseInt(in.nextLine());
+            switch (opc) {
+                case 1: // Datos fiscales de la empresa
+                    
+                    break;
+                case 2: // Catálogo de personas fiscales
+                
+                    break;
+                case 3: // Gestión de facturas recibidas
+                
+                    break;
+                case 4: // Gestión de facturas emitidas
+            
+                    break;
+                case 5: // Mostrar detalle de factura
+
+                    break;
+                default:
+                    break;
+            }
         } while (opc!=0);
 
         // Se guarda el ArrayList de personas como un binario
@@ -29,18 +48,6 @@ public class App{
         mf.save();
     }   
 
-    /**
-     * Menú principal de la aplicación
-      */
-    void mostrarMenuPrincipal() {
-        System.out.println("----- Menú de Facturación -----");
-        System.out.println("1. Datos Fiscales de la Empresa");
-        System.out.println("2. Catálogo de Personas Fiscales");
-        System.out.println("3. Gestión de Facturas Recibidas");
-        System.out.println("4. Gestión de Facturas Emitidas");
-        System.out.println("5. Mostrar Detalle de Factura");
-        System.out.println("0. Salir");
-    }
-
     
+
 };

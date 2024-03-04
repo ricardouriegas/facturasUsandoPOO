@@ -9,6 +9,7 @@ public class ManejadorPersona {
     
     final private String appPath = new File("").getAbsolutePath() + "/";
     final private String personasFiscalesFile = appPath + "personasFiscales/";
+    final private String personaInicialObj = appPath + "persona.obj";
     private ArrayList<Persona> list;
     private Persona personaInicial;
 
@@ -17,7 +18,12 @@ public class ManejadorPersona {
       */
     public ManejadorPersona(){
         list = FileManagement.deserialize(personasFiscalesFile + "Personas.obj", Persona.class);
-        personaInicial = crearUsuario();
+        if(!new File(personaInicialObj).exists()){
+            System.out.println("No se encontraron sus datos fiscales, ingrese lo que se le pide: ");
+            personaInicial = crearUsuario();
+        } else {
+            personaInicial = FileManagement.deserializePersonaInicial(personaInicialObj);
+        }
     }
 
     /**
@@ -70,7 +76,7 @@ public class ManejadorPersona {
 
         System.out.println("Ingresa tu email: ");
         String email = in.nextLine();
-
+        System.out.println("\n\n");
         return new Persona(name, apellido, rfc, direccionFiscal, email, esPersonaFisica);
     }
 
@@ -151,5 +157,6 @@ public class ManejadorPersona {
       */
     public void save(){
         FileManagement.serialize(personasFiscalesFile + "Personas.obj", list, Persona.class);
+        FileManagement.serialize(personaInicialObj, personaInicial);
     }
 }

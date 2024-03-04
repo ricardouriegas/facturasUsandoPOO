@@ -16,7 +16,7 @@ public class FileManagement {
     final private static String personasFiscalesFile = appPath + "personasFiscales/";
     final private static String facturasRecibidasFile = appPath + "facturasRecibidas/";
     final private static String facturarEmitidasFile = appPath + "facturasEmitidas/";
-    
+
     /**
      * Función que gestiona la serialización de la aplicación
      * 
@@ -33,6 +33,12 @@ public class FileManagement {
         } catch (Exception e) { }
     }
     
+    public static <T> void serialize(String path,T p){
+        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path))){
+            oos.writeObject(p);
+        } catch(Exception e) {}
+    }
+
     /**
      * Función que gestiona la recuperación de la información de los .obj (Proceso de deserialización)
      * 
@@ -51,6 +57,13 @@ public class FileManagement {
         return null;
     }
 
+    public static Persona deserializePersonaInicial(String path){
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path))){
+            return (Persona) ois.readObject();
+        } catch (Exception e) {}
+        return null;
+    }
+
     /**
      * Función que verifica si existen los archivos necesarios para el funcionamiento del programa
       */
@@ -58,5 +71,8 @@ public class FileManagement {
         if(!new File(personasFiscalesFile).exists()) new File(personasFiscalesFile).mkdirs();
         if(!new File(facturasRecibidasFile).exists()) new File(facturasRecibidasFile).mkdirs();
         if(!new File(facturarEmitidasFile).exists()) new File(facturarEmitidasFile).mkdirs();
+        
     }
+
+
 }
