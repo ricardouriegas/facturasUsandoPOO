@@ -1,35 +1,25 @@
 package practica6;
 
 import java.io.Serializable;
-import java.util.Random;
-import java.util.Date;
-
 /**
  * Verificar que genera un UUID aleatorio donde se haria?
  * ya, que sea en el manejador, que mande llamar al manejador
  */
 
 public class Factura implements Serializable {
-    /**
-     * Identificador
-     * Emisor : PersonaFactura
-     * receptor: PersonaFactura
-     * EsInvalida? : bool
-      */
     private String concepto;
     private Double monto;
     private Double iva;
     private Double montoTotal;
     private String UUID;
-    private Date fecha;
+    private Fecha fecha;
     private RFC rfc;
-    private Boolean validez;
-
+    private Boolean esRecibida;
     /*
     * Constructor
     * */
 
-    public Factura(String concepto, Double monto, Double iva, Double montoTotal, String UUID, Date fecha, RFC rfc) {
+    public Factura(String concepto, Double monto, Double iva, Double montoTotal, String UUID, Fecha fecha, RFC rfc, Boolean esRecibida) {
         this.concepto = concepto;
         this.monto = monto;
         this.iva = iva;
@@ -37,7 +27,7 @@ public class Factura implements Serializable {
         this.UUID = UUID;
         this.fecha = fecha;
         this.rfc = rfc;
-        this.validez = true; 
+        this.esRecibida = esRecibida;
     }
 
     /**
@@ -83,11 +73,11 @@ public class Factura implements Serializable {
         this.UUID = UUID;
     }
 
-    public Date getFecha() {
+    public Fecha getFecha() {
         return this.fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(Fecha fecha) {
         this.fecha = fecha;
     }
 
@@ -99,15 +89,9 @@ public class Factura implements Serializable {
         this.rfc = rfc;
     }
 
-    public Boolean getValidez() {
-        return this.validez;
+    public Boolean getEsRecibida() {
+        return esRecibida;
     }
-
-    public void setValidez(Boolean validez) {
-        this.validez = validez;
-    }
-
-    
 
     @Override
     public String toString() {
@@ -118,8 +102,8 @@ public class Factura implements Serializable {
                 "\n\tmontoTotal=" + montoTotal +
                 "\n\tUUID='" + UUID + 
                 "\n\tfecha=" + fecha +
-                "\n\trfc=" + rfc +
-                "\n\tvalidez=" + validez +
+                "\n\trfc=" + rfc + 
+                "\n\tTipo: " + ((esRecibida) ? "Recibida" : "Emitida") +
                 "\n}";
     }
 }

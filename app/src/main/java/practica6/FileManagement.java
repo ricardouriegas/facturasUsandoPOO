@@ -73,6 +73,4 @@ public class FileManagement {
         if(!new File(facturarEmitidasFile).exists()) new File(facturarEmitidasFile).mkdirs();
         
     }
-
-
 }

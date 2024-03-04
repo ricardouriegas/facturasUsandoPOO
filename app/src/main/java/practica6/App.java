@@ -3,7 +3,11 @@ package practica6;
 import java.util.Scanner;
 
 public class App{
-    final Scanner in = new Scanner(System.in);
+    private final Scanner in = new Scanner(System.in);
+
+    // Manejador de personas
+    private final ManejadorPersona mp = new ManejadorPersona();
+    private final ManejadorFactura mf = new ManejadorFactura();
 
     public static void main(String[] args) {
         App app = new App();
@@ -13,10 +17,6 @@ public class App{
     void run(){
         FileManagement.verificacionInicial();
 
-        // Manejador de personas
-        ManejadorPersona mp = new ManejadorPersona();
-        ManejadorFactura mf = new ManejadorFactura();
-
         int opc;
         do {
             System.out.println("=== Bienvenido al sistema de facturas de Ficticia S.A. de C.V. ===");
@@ -24,13 +24,13 @@ public class App{
             opc = Integer.parseInt(in.nextLine());
             switch (opc) {
                 case 1: // Datos fiscales de la empresa
-                    
+                    datosFiscalesEmpresa();
                     break;
                 case 2: // Catálogo de personas fiscales
-                
+                    catalogoPersonasFiscales();
                     break;
                 case 3: // Gestión de facturas recibidas
-                
+                    
                     break;
                 case 4: // Gestión de facturas emitidas
             
@@ -41,13 +41,87 @@ public class App{
                 default:
                     break;
             }
-        } while (opc!=0);
+        } while (opc != 0);
 
         // Se guarda el ArrayList de personas como un binario
         mp.save();
         mf.save();
     }   
 
-    
+    /**
+     * Método que muestra el menú de datos fiscales de la empresa
+     * @param void
+     * @return void
+     */
+    void datosFiscalesEmpresa(){
+        int opc;
+        do {
+            Menus.mostrarMenuDatosFiscales();
+            opc = Integer.parseInt(in.nextLine());
+            switch (opc) {
+                case 1: // Mostrar Datos Fiscales Actuales
+                    System.out.println("Los datos fiscales de la empresa son: \n" + mp.imprimirPersonaInicial());
+                    break;
+                case 2: // Modificar Datos Fiscales
+                    mp.modificarUsuarioInicial();
+                    break;
+                default:
+                    break;
+            }
+        } while (opc != 0);
+    }
 
+    void catalogoPersonasFiscales(){
+        int opc;
+        String rfc;
+        do {
+            Menus.mostrarMenuCatalogoPersonasFiscales();
+            opc = Integer.parseInt(in.nextLine());
+            switch (opc) {
+                case 1: // Agregar Persona Fiscal
+                    mp.agregarPersona(mp.crearUsuario());
+                    break;
+                case 2: // Modificar Persona Fiscal
+                    System.out.println("Ingrese el RFC de la persona a modificar: ");
+                    rfc = in.nextLine();
+                    mp.modificarPersona(rfc);
+                    break;
+                case 3: // Eliminar Persona Fiscal
+                    System.out.println("Ingrese el RFC de la persona a eliminar: ");
+                    rfc = in.nextLine();
+                    mp.eliminarPersona(rfc);
+                    break;
+                case 4: // Mostrar Personas Fiscales
+                    mp.mostrarPersonas();
+                    break;
+                default:
+                    break;
+            }
+        } while (opc != 0);
+    }
+
+    void gestionFacturasRecibidas(){
+        int opc;
+        do {
+            Menus.mostrarMenuGestionFacturasRecibidas();
+            opc = Integer.parseInt(in.nextLine());
+            switch (opc) {
+                case 1: // Listar factura recibida
+                    mf.listarFacturasRecibidas();
+                    break;
+                case 2: // Agregar Factura Recibida
+
+                    break;
+                case 3: // Eliminar Factura Recibida
+                    // mf.eliminarFactura();
+                    break;
+                default:
+                    break;
+            }
+        } while (opc != 0);
+    }
+
+
+
+    
 };

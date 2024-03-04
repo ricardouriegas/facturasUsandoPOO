@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.Date;
 
 /**
  * TODO URIEGAS: modificar el UML y agregar lo de generateRandomString
@@ -60,5 +59,44 @@ public class ManejadorFactura{
         for(Factura p : facturasEmitidas) if(rs == p.getUUID()) return false;
         for(Factura p : facturasRecibidas) if(rs == p.getUUID()) return false;
         return true;
+    }
+
+    /**
+     * Función para listar las facturas recibidas
+      */
+    public void listarFacturasRecibidas(){    
+        if(facturasRecibidas.isEmpty()){
+            System.out.println("No hay facturas recibidas registradas");
+            return;
+        }
+        
+        int opc;
+        do {
+            Menus.menuListarFacturasRecibidas();
+            opc = Integer.parseInt(in.nextLine());
+            switch (opc) {
+                case 1:
+                    System.out.println("Ingresa el número de mes por el que listar: ");
+                    int mes;
+                    do {
+                        mes = Integer.parseInt(in.nextLine());
+                        if(mes>=1&&mes<=12) break;
+                        System.out.println("Mes inválido.");
+                    } while (true);
+
+                    for(Factura f : facturasRecibidas) if(f.getFecha().getMes()==mes) System.out.println(f.toString());
+                    break;
+                case 2:
+                    System.out.println("Ingresa el año por el que listar: ");
+                    int año = Integer.parseInt(in.nextLine());
+                    for(Factura f : facturasRecibidas) if(f.getFecha().getAño()==año) System.out.println(f.toString());
+                    break;
+                case 3:
+                    for(Factura f : facturasRecibidas) System.out.println(f.toString());
+                    break;
+                default:
+                    break;
+            }
+        } while (opc!=0);
     }
 };

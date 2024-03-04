@@ -65,11 +65,14 @@ public class ManejadorPersona {
             apellido = in.nextLine();
         } else apellido = "";
 
-        // -----------------------------------------------
-        // todo: Verificar que el RFC no se encuentre repetido
-        System.out.println("Ingresa el rfc: ");
-        String rfc = in.nextLine();
-        // -----------------------------------------------
+        String rfc;
+
+        do {
+            System.out.println("Ingresa el RFC: ");
+            rfc = in.nextLine();
+            if(!esRfcUnico(rfc)) System.out.println("El RFC se encuentra repetido");
+            else break;
+        } while (true);
 
         System.out.println("Ingresa tu dirección fiscal: ");
         String direccionFiscal = in.nextLine();
@@ -95,9 +98,24 @@ public class ManejadorPersona {
      * @return Persona
       */
     public Persona buscarPersona(String rfc){
-        for(Persona p : list) if(p.getRfc() == rfc) return p;
+        for(Persona p : list) if(p.getRfc().equals(rfc)) return p;
         return null;
     }
+
+    /**
+ * Función para determinar si un RFC es único
+ * @param rfc
+ * @return Boolean
+ */
+    public Boolean esRfcUnico(String rfc){
+        if(personaInicial.getRfc().equals(rfc)) return false;
+
+        for(Persona p : list) 
+            if(p.getRfc().equals(rfc) || p.getRfc().equals(personaInicial.getRfc())) 
+                return false;
+        return true;
+    }
+
 
     void modificarPersona(String rfc){
         Persona p = buscarPersona(rfc);
@@ -150,6 +168,68 @@ public class ManejadorPersona {
                     break;
             }
         } while (true);
+    }
+
+    /**
+     * Función que elimina a una persona del ArrayList
+     * @param rfc
+     * @return void
+     */
+    public void eliminarPersona(String rfc){
+        Persona p = buscarPersona(rfc);
+        if(p == null) {
+            System.out.println("No se encontró la persona");
+            return;
+        }
+        list.remove(p);
+    }
+
+    /**
+     * Función que muestra a todas las personas
+     * @return void
+     */
+    public void mostrarPersonas(){
+        if(list.isEmpty()){
+            System.out.println("No hay personas para mostrar");
+            return;
+        }
+        
+        for(Persona p : list) System.out.println(p);
+    }
+
+    public void modificarUsuarioInicial(){
+        Menus.menuModificarDatosFiscales(personaInicial);
+        int opc = Integer.parseInt(in.nextLine());
+
+        switch (opc) {
+            case 1:
+                System.out.println("Ingresa el nuevo nombre: ");
+                personaInicial.setNombre(in.nextLine());
+                break;
+            case 2:
+                System.out.println("Ingresa el nuevo RFC: ");
+                String errefece = in.nextLine();
+                if(esRfcUnico(errefece) == false){
+                    System.out.println("El RFC ya existe, lo sentimos\n");
+                } else {
+                    personaInicial.setRfc(errefece);
+                    System.out.println("RFC modificado con éxito");
+                }
+                break;
+            case 3:
+                System.out.println("Ingresa la nueva dirección fiscal: ");
+                personaInicial.setDireccionFiscal(in.nextLine());
+                break;
+            case 4:
+                if(personaInicial.getEsPersonaFisica()==false) return;
+                System.out.println("Ingresa el nuevo apellido: ");
+                personaInicial.setApellido(in.nextLine());
+                break;
+            case 5:
+                return; 
+            default:
+                break;
+        }
     }
 
     /**
