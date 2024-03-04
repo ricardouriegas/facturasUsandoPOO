@@ -99,4 +99,12 @@ public class ManejadorFactura{
             }
         } while (opc!=0);
     }
+
+    public void agregarFacturaRecibida() {
+        
+    }
+
+    public void eliminarFactura(){
+
+    }
 };

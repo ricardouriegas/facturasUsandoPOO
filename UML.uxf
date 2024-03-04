@@ -1,4 +1,4 @@
-<diagram program="umletino" version="15.1"><zoom_level>7</zoom_level><help_text>Space for diagram note</help_text><element><id>UMLClass</id><coordinates><x>476</x><y>543</y><w>147</w><h>133</h></coordinates><panel_attributes>*Persona*
+<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><help_text>Space for diagram </help_text><element><id>UMLClass</id><coordinates><x>664</x><y>568</y><w>168</w><h>152</h></coordinates><panel_attributes>*Persona*
 --
 - nombre: String
 - apellido: String
@@ -9,14 +9,14 @@
 --
 + modificarDatos()
 + toString()
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>914</y><w>147</w><h>133</h></coordinates><panel_attributes>*RFC*
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>120</x><y>992</y><w>168</w><h>152</h></coordinates><panel_attributes>*RFC*
 --
 - nombreCompleto: String
 - direccionFiscal: String
 - email: String
 - tipo: Boolean
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>732</y><w>147</w><h>133</h></coordinates><panel_attributes>*Factura*
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>120</x><y>784</y><w>168</w><h>152</h></coordinates><panel_attributes>*Factura*
 --
 - concepto: String
 - monto: Double
@@ -27,46 +27,49 @@
 - RFC: RFC
 - validez: Bool
 --
-+ toString()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>70</x><y>669</y><w>21</w><h>77</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>70</x><y>858</y><w>21</w><h>70</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>7</x><y>543</y><w>147</w><h>133</h></coordinates><panel_attributes>*ManejadorFacturas*
++ toString()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>712</y><w>24</w><h>88</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>928</y><w>24</w><h>80</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>568</y><w>296</w><h>152</h></coordinates><panel_attributes>*ManejadorFacturas*
 --
 --
 + guardar(Factura: factura)
 + borrar(Factura: factura)
 + listarFacturasRecibidas(Date: fechaInicial, Date: fechaFinal	)
 + listarFacturasEmitadas(Date: fechaInicial, Date: fechaFinal)
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLActor</id><coordinates><x>679</x><y>438</y><w>42</w><h>77</h></coordinates><panel_attributes>Usuario</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>686</x><y>326</y><w>133</w><h>28</h></coordinates><panel_attributes>Guardar Personas fiscales</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>854</x><y>452</y><w>133</w><h>28</h></coordinates><panel_attributes>Modificar Datos de 
-Personas Fiscales</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>819</x><y>368</y><w>84</w><h>35</h></coordinates><panel_attributes>Guardar Factura
-recibida</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>854</x><y>410</y><w>84</w><h>35</h></coordinates><panel_attributes>Borrar Factura
-recibida</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>868</x><y>529</y><w>84</w><h>28</h></coordinates><panel_attributes>Emitir Factura</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>882</x><y>487</y><w>84</w><h>35</h></coordinates><panel_attributes>Cancelar Factura
-Emitida</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>798</x><y>564</y><w>84</w><h>35</h></coordinates><panel_attributes>Listar facturas 
-Recibidas</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>728</x><y>592</y><w>84</w><h>35</h></coordinates><panel_attributes>Listar Facturas 
-Emitidas</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>651</x><y>613</y><w>84</w><h>28</h></coordinates><panel_attributes>Consultar Factura</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>347</y><w>77</w><h>105</h></coordinates><panel_attributes></panel_attributes><additional_attributes>90;10;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>707</x><y>445</y><w>161</w><h>35</h></coordinates><panel_attributes></panel_attributes><additional_attributes>210;30;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>707</x><y>382</y><w>126</w><h>77</h></coordinates><panel_attributes></panel_attributes><additional_attributes>160;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>707</x><y>424</y><w>161</w><h>42</h></coordinates><panel_attributes></panel_attributes><additional_attributes>210;10;10;40</additional_attributes></element><element><id>Relation</id><coordinates><x>707</x><y>473</y><w>175</w><h>84</h></coordinates><panel_attributes></panel_attributes><additional_attributes>230;100;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>707</x><y>466</y><w>189</w><h>49</h></coordinates><panel_attributes></panel_attributes><additional_attributes>250;50;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>707</x><y>480</y><w>140</w><h>98</h></coordinates><panel_attributes></panel_attributes><additional_attributes>180;120;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>700</x><y>501</y><w>84</w><h>105</h></coordinates><panel_attributes></panel_attributes><additional_attributes>100;130;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>686</x><y>501</y><w>28</w><h>126</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;160;20;10</additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>798</x><y>249</y><w>84</w><h>28</h></coordinates><panel_attributes>guardar archivo</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>742</x><y>256</y><w>84</w><h>84</h></coordinates><panel_attributes>lt=&lt;.
-&lt;&lt;include&gt;&gt;</panel_attributes><additional_attributes>10;100;80;10</additional_attributes></element><element><id>Relation</id><coordinates><x>847</x><y>270</y><w>63</w><h>112</h></coordinates><panel_attributes>lt=&lt;.
-&lt;&lt;include&gt;&gt;</panel_attributes><additional_attributes>30;140;10;10</additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>1015</x><y>382</y><w>84</w><h>28</h></coordinates><panel_attributes>eliminar archivo</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>931</x><y>389</y><w>98</w><h>49</h></coordinates><panel_attributes>lt=&lt;.
-&lt;&lt;include&gt;&gt;</panel_attributes><additional_attributes>10;50;120;10</additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>896</x><y>669</y><w>84</w><h>28</h></coordinates><panel_attributes>leer archivo</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>770</x><y>620</y><w>140</w><h>77</h></coordinates><panel_attributes>lt=&lt;.
-&lt;&lt;include&gt;&gt;</panel_attributes><additional_attributes>10;10;180;90</additional_attributes></element><element><id>Relation</id><coordinates><x>833</x><y>592</y><w>91</w><h>98</h></coordinates><panel_attributes>lt=&lt;.
-&lt;&lt;include&gt;&gt;</panel_attributes><additional_attributes>10;10;100;120</additional_attributes></element><element><id>Relation</id><coordinates><x>917</x><y>550</y><w>63</w><h>133</h></coordinates><panel_attributes>lt=&lt;.
-&lt;&lt;include&gt;&gt;</panel_attributes><additional_attributes>10;10;30;170</additional_attributes></element><element><id>Relation</id><coordinates><x>686</x><y>634</y><w>231</w><h>70</h></coordinates><panel_attributes>lt=&lt;.
-&lt;&lt;include&gt;&gt;</panel_attributes><additional_attributes>10;10;310;80</additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>1057</x><y>452</y><w>91</w><h>28</h></coordinates><panel_attributes>Modificar un 
-archivo</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>980</x><y>452</y><w>91</w><h>28</h></coordinates><panel_attributes>lt=&lt;.
-&lt;&lt;include&gt;&gt;</panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>Relation</id><coordinates><x>959</x><y>473</y><w>140</w><h>42</h></coordinates><panel_attributes>lt=&lt;.
-&lt;&lt;include&gt;&gt;</panel_attributes><additional_attributes>10;40;172;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>252</x><y>256</y><w>147</w><h>133</h></coordinates><panel_attributes>*ManejadorPersonas*
++ generateRandomString(): String
++ verificarRandomString(String: rs): Boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLActor</id><coordinates><x>896</x><y>448</y><w>48</w><h>88</h></coordinates><panel_attributes>Usuario</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>904</x><y>320</y><w>152</w><h>32</h></coordinates><panel_attributes>Guardar Personas fiscales</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>1096</x><y>464</y><w>152</w><h>32</h></coordinates><panel_attributes>Modificar Datos de 
+Personas Fiscales</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>1056</x><y>368</y><w>96</w><h>40</h></coordinates><panel_attributes>Guardar Factura
+recibida</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>1096</x><y>416</y><w>96</w><h>40</h></coordinates><panel_attributes>Borrar Factura
+recibida</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>1112</x><y>552</y><w>96</w><h>32</h></coordinates><panel_attributes>Emitir Factura</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>1128</x><y>504</y><w>96</w><h>40</h></coordinates><panel_attributes>Cancelar Factura
+Emitida</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>1032</x><y>592</y><w>96</w><h>40</h></coordinates><panel_attributes>Listar facturas 
+Recibidas</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>952</x><y>624</y><w>96</w><h>40</h></coordinates><panel_attributes>Listar Facturas 
+Emitidas</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>864</x><y>648</y><w>96</w><h>32</h></coordinates><panel_attributes>Consultar Factura</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>912</x><y>344</y><w>88</w><h>120</h></coordinates><panel_attributes></panel_attributes><additional_attributes>90;10;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>928</x><y>456</y><w>184</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes>210;30;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>928</x><y>384</y><w>144</w><h>88</h></coordinates><panel_attributes></panel_attributes><additional_attributes>160;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>928</x><y>432</y><w>184</w><h>48</h></coordinates><panel_attributes></panel_attributes><additional_attributes>210;10;10;40</additional_attributes></element><element><id>Relation</id><coordinates><x>928</x><y>488</y><w>200</w><h>96</h></coordinates><panel_attributes></panel_attributes><additional_attributes>230;100;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>928</x><y>480</y><w>216</w><h>56</h></coordinates><panel_attributes></panel_attributes><additional_attributes>250;50;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>928</x><y>496</y><w>160</w><h>112</h></coordinates><panel_attributes></panel_attributes><additional_attributes>180;120;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>920</x><y>520</y><w>96</w><h>120</h></coordinates><panel_attributes></panel_attributes><additional_attributes>100;130;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>904</x><y>520</y><w>32</w><h>144</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;160;20;10</additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>1032</x><y>232</y><w>96</w><h>32</h></coordinates><panel_attributes>guardar archivo</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>968</x><y>240</y><w>96</w><h>96</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes><additional_attributes>10;100;80;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1088</x><y>256</y><w>72</w><h>128</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes><additional_attributes>30;140;10;10</additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>1280</x><y>384</y><w>96</w><h>32</h></coordinates><panel_attributes>eliminar archivo</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1184</x><y>392</y><w>112</w><h>56</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes><additional_attributes>10;50;120;10</additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>1144</x><y>712</y><w>96</w><h>32</h></coordinates><panel_attributes>leer archivo</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1000</x><y>656</y><w>160</w><h>88</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes><additional_attributes>10;10;180;90</additional_attributes></element><element><id>Relation</id><coordinates><x>1072</x><y>624</y><w>104</w><h>112</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes><additional_attributes>10;10;100;120</additional_attributes></element><element><id>Relation</id><coordinates><x>1168</x><y>576</y><w>72</w><h>152</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes><additional_attributes>10;10;30;170</additional_attributes></element><element><id>Relation</id><coordinates><x>904</x><y>672</y><w>264</w><h>80</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes><additional_attributes>10;10;310;80</additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>1328</x><y>464</y><w>104</w><h>32</h></coordinates><panel_attributes>Modificar un 
+archivo</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1240</x><y>464</y><w>104</w><h>32</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1216</x><y>488</y><w>160</w><h>48</h></coordinates><panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes><additional_attributes>10;40;172;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>408</x><y>240</y><w>184</w><h>168</h></coordinates><panel_attributes>*ManejadorPersona*
 --
 - String: appPath
 - String personasFiscalesFile
+- String: personaInicialObj
 - ArrayList&lt;Persona&gt;: List
 - Persona: personaInicial
 --
 + imprimirPersonaInicial(): String
 + crearUsuario(): Persona
 + agregarPersona(Persona: p)
++ esRFCUnico(String: rfc): Boolean
 + buscarPersona(String: rfc): Persona
 + modificarPersona(String: rfc)
-+ save()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>217</x><y>543</y><w>238</w><h>133</h></coordinates><panel_attributes>*FileManagement*
++ save()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>368</x><y>568</y><w>272</w><h>152</h></coordinates><panel_attributes>*FileManagement*
 --
 --
 + serialize(String: path, ArrayList&lt;T&gt;: List, Class&lt;T&gt;: clazz)
-+ deserialize(String: parh, Class&lt;T&gt;: clazz)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>322</x><y>382</y><w>21</w><h>175</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;10;230</additional_attributes></element><element><id>Relation</id><coordinates><x>147</x><y>606</y><w>84</w><h>28</h></coordinates><panel_attributes></panel_attributes><additional_attributes>100;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>392</x><y>312</y><w>168</w><h>245</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;220;10;220;330</additional_attributes></element><element><id>UMLClass</id><coordinates><x>35</x><y>256</y><w>147</w><h>133</h></coordinates><panel_attributes>*Menus*
++ deserialize(String: parh, Class&lt;T&gt;: clazz)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>488</x><y>400</y><w>24</w><h>184</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;10;210</additional_attributes></element><element><id>Relation</id><coordinates><x>288</x><y>640</y><w>96</w><h>32</h></coordinates><panel_attributes></panel_attributes><additional_attributes>100;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>584</x><y>304</y><w>176</w><h>280</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;200;10;200;330</additional_attributes></element><element><id>UMLClass</id><coordinates><x>160</x><y>240</y><w>168</w><h>152</h></coordinates><panel_attributes>*Menus*
 --
 --
 + menuPrincipal()
@@ -74,14 +77,14 @@ archivo</panel_attributes><additional_attributes></additional_attributes></eleme
 + menuCatalogoPersonasFiscales()
 + menuGestionFacturasRecibidas()
 + menuGestionFacturasEmitidas()
-+ menuDatosFiscales()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>98</x><y>102</y><w>168</w><h>168</h></coordinates><panel_attributes></panel_attributes><additional_attributes>220;20;10;20;10;220</additional_attributes></element><element><id>UMLClass</id><coordinates><x>252</x><y>46</y><w>147</w><h>133</h></coordinates><panel_attributes>*Main*
++ menuDatosFiscales()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>232</x><y>64</y><w>192</w><h>192</h></coordinates><panel_attributes></panel_attributes><additional_attributes>220;20;10;20;10;220</additional_attributes></element><element><id>UMLClass</id><coordinates><x>408</x><y>0</y><w>168</w><h>152</h></coordinates><panel_attributes>*Main*
 --
 --
 + datosFiscalesEmpresa()
 + catalogoPersonasFiscales()
 + gestionFacturasRecibidas()
 + gestionFacturasEmitidas()
-+ mostrarDetalleFactura()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>322</x><y>172</y><w>21</w><h>98</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>UMLClass</id><coordinates><x>231</x><y>732</y><w>189</w><h>133</h></coordinates><panel_attributes>*Fecha*
++ mostrarDetalleFactura()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>488</x><y>144</y><w>24</w><h>112</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>UMLClass</id><coordinates><x>384</x><y>784</y><w>216</w><h>152</h></coordinates><panel_attributes>*Fecha*
 --
 - int: anio
 - int: mes
@@ -91,4 +94,7 @@ archivo</panel_attributes><additional_attributes></additional_attributes></eleme
 + de(String: fechaStr): Fecha
 + esValida(int: anio, int: mes, int: dia): Boolean
 + esAnioBisiesto(int: anio): Boolean
-+ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>140</x><y>774</y><w>105</w><h>28</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element></diagram>
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>832</y><w>120</w><h>32</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>688</x><y>832</y><w>120</w><h>72</h></coordinates><panel_attributes>*NumerosUtil*
+--
+--
++ getInt(String: s): int</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>592</x><y>848</y><w>112</w><h>32</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;120;20</additional_attributes></element></diagram>

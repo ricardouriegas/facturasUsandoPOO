@@ -110,7 +110,7 @@ public class App{
                     mf.listarFacturasRecibidas();
                     break;
                 case 2: // Agregar Factura Recibida
-
+                    // mf.agregarFacturaRecibida();
                     break;
                 case 3: // Eliminar Factura Recibida
                     // mf.eliminarFactura();
