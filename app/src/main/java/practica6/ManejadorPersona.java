@@ -144,8 +144,12 @@ public class ManejadorPersona {
                 case 2:
                     System.out.println("Ingresa el nuevo RFC: ");
                     String newRfc = in.nextLine();
-                    // todo: Validación de que no se repita
-                    p.setRfc(newRfc);
+                    if(esRfcUnico(rfc)){
+                        p.setRfc(newRfc);
+                        System.out.println("RFC modificado con éxito");
+                    } else {
+                        System.out.println("El rfc se encuentra repetido, lo sentimos");
+                    }
                     break;
                 case 3: 
                     System.out.println("Ingresa la nueva dirección fiscal: ");

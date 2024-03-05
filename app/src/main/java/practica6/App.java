@@ -30,10 +30,10 @@ public class App{
                     catalogoPersonasFiscales();
                     break;
                 case 3: // Gestión de facturas recibidas
-                    
+                    gestionFacturasRecibidas();
                     break;
                 case 4: // Gestión de facturas emitidas
-            
+                    
                     break;
                 case 5: // Mostrar detalle de factura
 
@@ -100,6 +100,7 @@ public class App{
         } while (opc != 0);
     }
 
+    @SuppressWarnings("null")
     void gestionFacturasRecibidas(){
         int opc;
         do {
@@ -109,11 +110,16 @@ public class App{
                 case 1: // Listar factura recibida
                     mf.listarFacturasRecibidas();
                     break;
-                case 2: // Agregar Factura Recibida
-                    // mf.agregarFacturaRecibida();
+                case 2: 
+                    System.out.println("Ingresa el RFC del usuario al que emitirle una factura: ");
+                    String rfc = in.nextLine();
+                    Persona persona = mp.buscarPersona(rfc);
+                    if(persona==null) System.out.println("No se encontró la persona indicada");
+                    
+                    mf.agregarFacturaRecibida(persona.getRfc());
                     break;
-                case 3: // Eliminar Factura Recibida
-                    // mf.eliminarFactura();
+                case 3: 
+                    mf.eliminarFacturaRecibida();
                     break;
                 default:
                     break;
@@ -121,7 +127,34 @@ public class App{
         } while (opc != 0);
     }
 
-
+    void gestionFacturasEmitidas () {
+        int opc;
+        do {
+            Menus.mostrarMenuGestionFacturasEmitidas();
+            opc = Integer.parseInt(in.nextLine());
+            switch (opc) {
+                case 1: // Listar factura emitida
+                    mf.listarFacturasEmitidas();
+                    break;
+                case 2: // Agregar Factura Emitida
+                    System.out.println("Ingresa el RFC del usuario al que se le emitirá la factura: ");
+                    String rfc = in.nextLine();
+                    Persona persona = mp.buscarPersona(rfc);
+                    if(persona==null) {
+                        System.out.println("No se encontró la persona indicada");
+                        return;
+                    }
+                    
+                    // mf.agregarFacturaEmitida();
+                    break;
+                case 3: // Eliminar Factura Emitida
+                    mf.eliminarFacturaEmitida();
+                    break;
+                default:
+                    break;
+            }
+        } while (opc != 0);
+    }
 
     
 };

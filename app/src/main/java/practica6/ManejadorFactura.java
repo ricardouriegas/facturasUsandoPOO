@@ -5,10 +5,6 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-/**
- * TODO URIEGAS: modificar el UML y agregar lo de generateRandomString
-*/
-
 public class ManejadorFactura{
     final private String appPath = new File("").getAbsolutePath() + "/";
     final String facturasRecibidasFile = appPath + "facturasRecibidas/";
@@ -100,11 +96,116 @@ public class ManejadorFactura{
         } while (opc!=0);
     }
 
-    public void agregarFacturaRecibida() {
+    /**
+     * Función para agregar una nueva factura
+      */
+    @SuppressWarnings("static-access")
+    public void agregarFacturaRecibida(String rfc) {
+        System.out.println("=== Usuario encontrado con éxito ===");
         
+        String uuid = generateRandomString();
+        
+        System.out.println("Ingresa el concepto de la factura: ");
+        String concepto = in.nextLine();
+        
+        System.out.println("Ingresa el monto de la factura: ");
+        Double monto = Double.parseDouble(in.nextLine());
+
+        System.out.println("Ingresa el IVA: ");
+        Double iva;
+        do {
+            iva = Double.parseDouble(in.nextLine());
+            if(iva< 0 || iva > 1)
+                System.out.println("IVA inválido, el IVA tiene que ser un valor decimal entre 0 y 1");
+            else 
+                break;
+        } while (true);
+
+        System.out.println("Ingresa la fecha de la factura en formato (dd/mm/yyyy): ");
+        Fecha fecha;
+        do {
+            fecha = Fecha.de(in.nextLine());
+            if(fecha.esValida(fecha.getAño(), fecha.getMes(), fecha.getDia()))
+                break;
+            else
+                System.out.println("Fecha no válida");
+        } while (true);
+        
+        facturasRecibidas.add(new Factura(concepto, monto, iva, uuid, fecha, rfc));
     }
 
-    public void eliminarFactura(){
+    public void eliminarFacturaRecibida () {
+        System.out.println("Ingresa el UUID de la factura a eliminar: ");
+        String uuid = in.nextLine(); 
+        for(Factura f : facturasRecibidas) if(f.getUUID().equals(uuid)) {
+            facturasRecibidas.remove(f);
+            System.out.println("Factura removida exitosamente");
+        } else {
+            System.out.println("No se encontró la factura");
+        }
+    }
+    
+    public void eliminarFacturaEmitida () {
+        System.out.println("Ingresa el UUID de la factura a eliminar: ");
+        String uuid = in.nextLine();
+        for(Factura f : facturasEmitidas) if(f.getUUID().equals(uuid)){
+            System.out.println("Factura removida exitosamente");
+            facturasEmitidas.remove(f);
+        }  else {
+            System.out.println("No se encontró la factura a eliminar");
+        }
+    }
 
+    public void listarFacturasEmitidas () {
+        if(facturasEmitidas.isEmpty()){
+            System.out.println("No hay facturas emitidas registradas");
+            return;
+        }
+        
+        int opc;
+        do {
+            Menus.menuListarFacturasRecibidas();
+            opc = Integer.parseInt(in.nextLine());
+            switch (opc) {
+                case 1: // Listar por mes
+                    System.out.println("Ingresa el número de mes por el que listar: ");
+                    int mes;
+                    do {
+                        mes = Integer.parseInt(in.nextLine());
+                        if(mes>=1&&mes<=12) break;
+                        System.out.println("Mes inválido.");
+                    } while (true);
+
+                    for(Factura f : facturasEmitidas) if(f.getFecha().getMes()==mes) System.out.println(f.toString());
+                    break;
+                case 2: // Listar por año
+                    System.out.println("Ingresa el año por el que listar: ");
+                    int año = Integer.parseInt(in.nextLine());
+                    for(Factura f : facturasEmitidas) if(f.getFecha().getAño()==año) System.out.println(f.toString());
+                    break;
+                case 3: // Listar todas
+                    for(Factura f : facturasEmitidas) System.out.println(f.toString());
+                    break;
+                default:
+                    break;
+            }
+        } while (opc!=0);
+    }
+
+    public void agregarFacturaEmitida () {
+        System.out.println("=== Usuario encontrado con éxito ===");
+        
+        String uuid = generateRandomString();
+        // También se debe contemplar la funcionalidad de guardar una nueva 
+        // factura emitida, ingresando primero el RFC de la persona fiscal a la 
+        // cuál vamos a emitirle la factura (esta debe estar registrada en el 
+        // catálogo de personas fiscales, si no existe mostrar un mensaje que 
+        // no existe), después ingresar el identificador de la factura (que debe
+        //  ser único y si se ingresa un identificador que ya exista en una 
+        // factura emitida o recibida, mostrar un mensaje que ese identificador 
+        // ya existe), ingresar la fecha y los demás datos de la factura.
+        
+
+        
     }
 };

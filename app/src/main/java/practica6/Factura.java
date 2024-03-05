@@ -13,21 +13,19 @@ public class Factura implements Serializable {
     private Double montoTotal;
     private String UUID;
     private Fecha fecha;
-    private RFC rfc;
-    private Boolean esRecibida;
+    private String rfc;
+    
     /*
     * Constructor
     * */
-
-    public Factura(String concepto, Double monto, Double iva, Double montoTotal, String UUID, Fecha fecha, RFC rfc, Boolean esRecibida) {
+    public Factura(String concepto, Double monto, Double iva, String UUID, Fecha fecha, String rfc) {
         this.concepto = concepto;
         this.monto = monto;
         this.iva = iva;
-        this.montoTotal = montoTotal;
+        this.montoTotal = monto + monto*iva;
         this.UUID = UUID;
         this.fecha = fecha;
         this.rfc = rfc;
-        this.esRecibida = esRecibida;
     }
 
     /**
@@ -81,16 +79,12 @@ public class Factura implements Serializable {
         this.fecha = fecha;
     }
 
-    public RFC getRfc() {
+    public String getRfc() {
         return this.rfc;
     }
 
-    public void setRfc(RFC rfc) {
+    public void setRfc(String rfc) {
         this.rfc = rfc;
-    }
-
-    public Boolean getEsRecibida() {
-        return esRecibida;
     }
 
     @Override
@@ -103,7 +97,6 @@ public class Factura implements Serializable {
                 "\n\tUUID='" + UUID + 
                 "\n\tfecha=" + fecha +
                 "\n\trfc=" + rfc + 
-                "\n\tTipo: " + ((esRecibida) ? "Recibida" : "Emitida") +
                 "\n}";
     }
 }
