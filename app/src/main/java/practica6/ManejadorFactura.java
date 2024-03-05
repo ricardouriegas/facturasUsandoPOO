@@ -153,19 +153,27 @@ public class ManejadorFactura {
         System.out.println("No se encontró la factura");
     }
     
+    /**
+     * vato, no jala, lo borra del array pero no del archivo
+     * si quieres mejor descarga el github y meneale en tu compu
+     *  mañana chaqueton
+     * pushea esta versión 
+     * a ver dejáme ver
+     * Función que elimina una factura  
+     * */  
     public void eliminarFacturaEmitida () {
         System.out.println("Ingresa el UUID de la factura a eliminar: ");
         String uuid = in.nextLine();
 
-        Iterator<Factura> iterator = facturasEmitidas.iterator();
-        while (iterator.hasNext()) {
-            Factura factura = iterator.next();
-            if (factura.getUUID().equals(uuid)) {
-                iterator.remove(); // Utilizando el método remove del iterador
-                System.out.println("Factura removida exitosamente");
+        for(Factura f : facturasEmitidas){
+            if(f.getUUID().equals(uuid)){
+                facturasEmitidas.remove(f); 
+                System.out.println("Registro encontrado y eliminado con éxito"); 
                 return;
             }
         }
+
+        System.out.println("No se encontró el registro a eliminar");
     }
 
     public void listarFacturasEmitidas () {
