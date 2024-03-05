@@ -18,6 +18,8 @@ public class ManejadorPersona {
       */
     public ManejadorPersona(){
         list = FileManagement.deserialize(personasFiscalesFile + "Personas.obj", Persona.class);
+
+        // Cosas de persona inicial
         if(!new File(personaInicialObj).exists()){
             System.out.println("No se encontraron sus datos fiscales, ingrese lo que se le pide: ");
             personaInicial = crearUsuario();

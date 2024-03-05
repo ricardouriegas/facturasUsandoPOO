@@ -1,5 +1,6 @@
 package practica6;
 
+import java.io.Serializable;
 /**
  * @author Luis Roberto Flores
  * @Collaborator Joshua Nathaniel Arrazola Elizondo
@@ -9,7 +10,7 @@ package practica6;
  * Representa una Fecha (día, més, año) ademas que imprime en el formato 
  * dd/MM/yyyy
  */
-public class Fecha {
+public class Fecha implements Serializable {
     
     // Variables de instancia
     private int año;

@@ -90,7 +90,7 @@ public class Factura implements Serializable {
     @Override
     public String toString() {
         return "Factura{" +
-                "\n\tconcepto='" + concepto +
+                "\n\tconcepto=" + concepto +
                 "\n\tmonto=" + monto +
                 "\n\tiva=" + iva +
                 "\n\tmontoTotal=" + montoTotal +

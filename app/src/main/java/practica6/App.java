@@ -19,7 +19,7 @@ public class App{
 
         int opc;
         do {
-            System.out.println("=== Bienvenido al sistema de facturas de Ficticia S.A. de C.V. ===");
+            System.out.println("=== Bienvenido al Sistema de Facturas de Ficticia S.A. de C.V. ===");
             Menus.mostrarMenuPrincipal();
             opc = Integer.parseInt(in.nextLine());
             switch (opc) {
@@ -110,14 +110,17 @@ public class App{
                 case 1: // Listar factura recibida
                     mf.listarFacturasRecibidas();
                     break;
-                case 2: 
+                case 2: // Agregar Factura Recibida
                     System.out.println("Ingresa el RFC del usuario al que emitirle una factura: ");
                     String rfc = in.nextLine();
                     Persona persona = mp.buscarPersona(rfc);
+
+                    // verificar que exista la persona
                     if(persona==null) {
                         System.out.println("No se encontró la persona indicada");
                         break;
                     }
+                    
                     mf.agregarFacturaRecibida(persona.getRfc());
                     break;
                 case 3: 
@@ -169,6 +172,4 @@ public class App{
                 break;
         }
     }
-
-    
 };

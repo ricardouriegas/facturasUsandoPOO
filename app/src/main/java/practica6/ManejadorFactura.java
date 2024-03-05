@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-public class ManejadorFactura{
+public class ManejadorFactura {
     final private String appPath = new File("").getAbsolutePath() + "/";
     final String facturasRecibidasFile = appPath + "facturasRecibidas/";
     final String facturasEmitidasFile = appPath + "facturasEmitidas/";
@@ -23,12 +23,16 @@ public class ManejadorFactura{
     public ManejadorFactura () {
         facturasRecibidas = FileManagement.deserialize(facturasRecibidasFile + "FacturasRecibidas.obj",Factura.class);
         facturasEmitidas = FileManagement.deserialize(facturasEmitidasFile + "FacturasEmitidas.obj", Factura.class);
+
+        // if (facturasEmitidas == null) {
+        //     facturasEmitidas = new ArrayList<>();
+        // }
     }
 
     /**
      * Función que guarda los datos procesados en el programa
-      */
-    public void save() {
+     */
+    public void save () {
         FileManagement.serialize(facturasRecibidasFile + "FacturasRecibidas.obj", facturasRecibidas, Factura.class);
         FileManagement.serialize(facturasEmitidasFile + "FacturasEmitidas.obj", facturasEmitidas, Factura.class);
     }
@@ -37,7 +41,7 @@ public class ManejadorFactura{
      * Función que genera un string aleatorio en java
      * @return 
       */
-    public String generateRandomString(){
+    public String generateRandomString () {
         Random random = new Random();
 
         do {
@@ -51,7 +55,7 @@ public class ManejadorFactura{
         } while (true);
     }
 
-    public Boolean verificarRandomString(String rs){
+    public Boolean verificarRandomString (String rs) {
         for(Factura p : facturasEmitidas) if(rs == p.getUUID()) return false;
         for(Factura p : facturasRecibidas) if(rs == p.getUUID()) return false;
         return true;
@@ -60,7 +64,7 @@ public class ManejadorFactura{
     /**
      * Función para listar las facturas recibidas
       */
-    public void listarFacturasRecibidas(){    
+    public void listarFacturasRecibidas () {    
         if(facturasRecibidas.isEmpty()){
             System.out.println("No hay facturas recibidas registradas");
             return;
@@ -100,7 +104,7 @@ public class ManejadorFactura{
      * Función para agregar una nueva factura
       */
     @SuppressWarnings("static-access")
-    public void agregarFacturaRecibida(String rfc) {
+    public void agregarFacturaRecibida (String rfc) {
         System.out.println("=== Usuario encontrado con éxito ===");
         
         String uuid = generateRandomString();
@@ -130,8 +134,8 @@ public class ManejadorFactura{
             else
                 System.out.println("Fecha no válida");
         } while (true);
-        
-        facturasRecibidas.add(new Factura(concepto, monto, iva, uuid, fecha, rfc));
+        Factura factura = new Factura(concepto, monto, iva, uuid, fecha, rfc);
+        facturasRecibidas.add(factura);
     }
 
     public void eliminarFacturaRecibida () {
@@ -223,8 +227,8 @@ public class ManejadorFactura{
             else
                 System.out.println("Fecha no válida");
         } while (true);
-
-        facturasEmitidas.add(new Factura(concepto, monto, iva, uuid, fecha, rfc));
+        Factura factura = new Factura(concepto, monto, iva, uuid, fecha, rfc);
+        facturasEmitidas.add(factura);
     }
 
     public void buscarFacturaRecibida (String uuid) {
