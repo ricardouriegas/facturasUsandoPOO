@@ -153,14 +153,6 @@ public class ManejadorFactura {
         System.out.println("No se encontró la factura");
     }
     
-    /**
-     * vato, no jala, lo borra del array pero no del archivo
-     * si quieres mejor descarga el github y meneale en tu compu
-     *  mañana chaqueton
-     * pushea esta versión 
-     * a ver dejáme ver
-     * Función que elimina una factura  
-     * */  
     public void eliminarFacturaEmitida () {
         System.out.println("Ingresa el UUID de la factura a eliminar: ");
         String uuid = in.nextLine();
