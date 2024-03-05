@@ -65,4 +65,11 @@ public class Menus {
         System.out.println("3. Listar todos");
         System.out.println("0. Salir");
     }
+
+    public static void menuMostrarDetalleFactura(){
+        System.out.println("---- ¿Qué tipo de factura deseas ver? ----");
+        System.out.println("1. Factura Recibida");
+        System.out.println("2. Factura Emitida");
+        System.out.println("0. Salir");
+    }
 }

@@ -27,6 +27,13 @@ public class ManejadorPersona {
     }
 
     /**
+     * Getter de personaInicial
+     */
+    public Persona getPersonaInicial(){
+        return personaInicial;
+    }
+
+    /**
      * Función que imprime los datos de la persona inicial
      * @return datosPersona
       */

@@ -33,10 +33,10 @@ public class App{
                     gestionFacturasRecibidas();
                     break;
                 case 4: // Gestión de facturas emitidas
-                    
+                    gestionFacturasEmitidas();
                     break;
                 case 5: // Mostrar detalle de factura
-
+                    mostrarDetalleFactura();
                     break;
                 default:
                     break;
@@ -114,8 +114,10 @@ public class App{
                     System.out.println("Ingresa el RFC del usuario al que emitirle una factura: ");
                     String rfc = in.nextLine();
                     Persona persona = mp.buscarPersona(rfc);
-                    if(persona==null) System.out.println("No se encontró la persona indicada");
-                    
+                    if(persona==null) {
+                        System.out.println("No se encontró la persona indicada");
+                        break;
+                    }
                     mf.agregarFacturaRecibida(persona.getRfc());
                     break;
                 case 3: 
@@ -137,15 +139,8 @@ public class App{
                     mf.listarFacturasEmitidas();
                     break;
                 case 2: // Agregar Factura Emitida
-                    System.out.println("Ingresa el RFC del usuario al que se le emitirá la factura: ");
-                    String rfc = in.nextLine();
-                    Persona persona = mp.buscarPersona(rfc);
-                    if(persona==null) {
-                        System.out.println("No se encontró la persona indicada");
-                        return;
-                    }
-                    
-                    // mf.agregarFacturaEmitida();
+                    // rfc de la persona incial
+                    mf.agregarFacturaEmitida(mp.getPersonaInicial().getRfc());
                     break;
                 case 3: // Eliminar Factura Emitida
                     mf.eliminarFacturaEmitida();
@@ -154,6 +149,25 @@ public class App{
                     break;
             }
         } while (opc != 0);
+    }
+
+    void mostrarDetalleFactura(){
+        int opc;
+        Menus.menuMostrarDetalleFactura();
+        opc = Integer.parseInt(in.nextLine());
+        System.out.println("Ingrese el UUID de la factura: ");
+        String uuid = in.nextLine();
+
+        switch (opc) {
+            case 1: // Mostrar detalle de factura recibida
+                mf.buscarFacturaRecibida(uuid);
+                break;
+            case 2: // Mostrar detalle de factura emitida
+                mf.buscarFacturaRecibida(uuid);
+                break;
+            default:
+                break;
+        }
     }
 
     

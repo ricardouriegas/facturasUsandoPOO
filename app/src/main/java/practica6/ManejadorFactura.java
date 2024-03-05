@@ -192,20 +192,56 @@ public class ManejadorFactura{
         } while (opc!=0);
     }
 
-    public void agregarFacturaEmitida () {
+    public void agregarFacturaEmitida (String rfc) {
         System.out.println("=== Usuario encontrado con éxito ===");
         
         String uuid = generateRandomString();
-        // También se debe contemplar la funcionalidad de guardar una nueva 
-        // factura emitida, ingresando primero el RFC de la persona fiscal a la 
-        // cuál vamos a emitirle la factura (esta debe estar registrada en el 
-        // catálogo de personas fiscales, si no existe mostrar un mensaje que 
-        // no existe), después ingresar el identificador de la factura (que debe
-        //  ser único y si se ingresa un identificador que ya exista en una 
-        // factura emitida o recibida, mostrar un mensaje que ese identificador 
-        // ya existe), ingresar la fecha y los demás datos de la factura.
-        
 
-        
+        System.out.println("Ingresa el concepto de la factura: ");
+        String concepto = in.nextLine();
+
+        System.out.println("Ingresa el monto de la factura: ");
+        Double monto = Double.parseDouble(in.nextLine());
+
+        System.out.println("Ingresa el IVA: ");
+        Double iva;
+
+        do {
+            iva = Double.parseDouble(in.nextLine());
+            if(iva< 0 || iva > 1)
+                System.out.println("IVA inválido, el IVA tiene que ser un valor decimal entre 0 y 1");
+            else 
+                break;
+        } while (true);
+
+        System.out.println("Ingresa la fecha de la factura en formato (dd/mm/yyyy): ");
+        Fecha fecha;
+        do {
+            fecha = Fecha.de(in.nextLine());
+            if(fecha.esValida(fecha.getAño(), fecha.getMes(), fecha.getDia()))
+                break;
+            else
+                System.out.println("Fecha no válida");
+        } while (true);
+    }
+
+    public void buscarFacturaRecibida (String uuid) {
+        for(Factura f : facturasRecibidas){
+            if(f.getUUID().equals(uuid)){
+                System.out.println(f.toString());
+            } else {
+                System.out.println("Factura no encontrada");
+            }
+        }
+    }
+
+    public void buscarFacturaEmitida (String uuid) {
+        for(Factura f : facturasEmitidas){
+            if(f.getUUID().equals(uuid)){
+                System.out.println(f.toString());
+            } else {
+                System.out.println("Factura no encontrada");
+            }
+        }
     }
 };
