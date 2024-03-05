@@ -94,7 +94,7 @@ public class Factura implements Serializable {
                 "\n\tmonto=" + monto +
                 "\n\tiva=" + iva +
                 "\n\tmontoTotal=" + montoTotal +
-                "\n\tUUID='" + UUID + 
+                "\n\tUUID=" + UUID + 
                 "\n\tfecha=" + fecha +
                 "\n\trfc=" + rfc + 
                 "\n}";

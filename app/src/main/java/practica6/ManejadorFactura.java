@@ -223,6 +223,8 @@ public class ManejadorFactura{
             else
                 System.out.println("Fecha no válida");
         } while (true);
+
+        facturasEmitidas.add(new Factura(concepto, monto, iva, uuid, fecha, rfc));
     }
 
     public void buscarFacturaRecibida (String uuid) {

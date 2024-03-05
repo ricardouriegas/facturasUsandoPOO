@@ -163,7 +163,7 @@ public class App{
                 mf.buscarFacturaRecibida(uuid);
                 break;
             case 2: // Mostrar detalle de factura emitida
-                mf.buscarFacturaRecibida(uuid);
+                mf.buscarFacturaEmitida(uuid);
                 break;
             default:
                 break;
