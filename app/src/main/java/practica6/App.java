@@ -17,11 +17,18 @@ public class App{
     void run(){
         FileManagement.verificacionInicial();
 
-        int opc;
+        int opc = 0;
         do {
             System.out.println("=== Bienvenido al Sistema de Facturas de Ficticia S.A. de C.V. ===");
             Menus.mostrarMenuPrincipal();
-            opc = Integer.parseInt(in.nextLine());
+            try {
+                opc = Integer.parseInt(in.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("\033[H\033[2J");
+                System.out.println("Opción no válida");
+                opc = -1;
+                continue;
+            }
             switch (opc) {
                 case 1: // Datos fiscales de la empresa
                     datosFiscalesEmpresa();

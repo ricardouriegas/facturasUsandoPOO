@@ -1,10 +1,11 @@
 package practica6;
 
+import java.io.Serializable;
 /**
  * Clase con implementaciones para manejo de números.
  * @author L.R.Flores
  */
-public final class NumerosUtil {
+public final class NumerosUtil implements Serializable {
     
     /**
      * De una String, regresa su representación en int, si es que es un número.

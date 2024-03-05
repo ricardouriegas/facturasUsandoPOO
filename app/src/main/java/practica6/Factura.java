@@ -1,10 +1,6 @@
 package practica6;
 
 import java.io.Serializable;
-/**
- * Verificar que genera un UUID aleatorio donde se haria?
- * ya, que sea en el manejador, que mande llamar al manejador
- */
 
 public class Factura implements Serializable {
     private String concepto;

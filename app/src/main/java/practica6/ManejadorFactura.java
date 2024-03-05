@@ -2,6 +2,7 @@ package practica6;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -135,25 +136,35 @@ public class ManejadorFactura {
         System.out.println("El UUID de la factura es: " + uuid);
     }
 
-    public void eliminarFacturaRecibida () {
+    public void eliminarFacturaRecibida() {
         System.out.println("Ingresa el UUID de la factura a eliminar: ");
-        String uuid = in.nextLine(); 
-        for(Factura f : facturasRecibidas) if(f.getUUID().equals(uuid)) {
-            facturasRecibidas.remove(f);
-            System.out.println("Factura removida exitosamente");
-        } else {
-            System.out.println("No se encontró la factura");
+        String uuid = in.nextLine();
+        
+        Iterator<Factura> iterator = facturasRecibidas.iterator();
+        while (iterator.hasNext()) {
+            Factura factura = iterator.next();
+            if (factura.getUUID().equals(uuid)) {
+                iterator.remove(); // Utilizando el método remove del iterador
+                System.out.println("Factura removida exitosamente");
+                break;
+            }
         }
+        save();
+        System.out.println("No se encontró la factura");
     }
     
     public void eliminarFacturaEmitida () {
         System.out.println("Ingresa el UUID de la factura a eliminar: ");
         String uuid = in.nextLine();
-        for(Factura f : facturasEmitidas) if(f.getUUID().equals(uuid)){
-            System.out.println("Factura removida exitosamente");
-            facturasEmitidas.remove(f);
-        }  else {
-            System.out.println("No se encontró la factura a eliminar");
+
+        Iterator<Factura> iterator = facturasEmitidas.iterator();
+        while (iterator.hasNext()) {
+            Factura factura = iterator.next();
+            if (factura.getUUID().equals(uuid)) {
+                iterator.remove(); // Utilizando el método remove del iterador
+                System.out.println("Factura removida exitosamente");
+                return;
+            }
         }
     }
 
