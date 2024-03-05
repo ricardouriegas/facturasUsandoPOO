@@ -23,10 +23,6 @@ public class ManejadorFactura {
     public ManejadorFactura () {
         facturasRecibidas = FileManagement.deserialize(facturasRecibidasFile + "FacturasRecibidas.obj",Factura.class);
         facturasEmitidas = FileManagement.deserialize(facturasEmitidasFile + "FacturasEmitidas.obj", Factura.class);
-
-        // if (facturasEmitidas == null) {
-        //     facturasEmitidas = new ArrayList<>();
-        // }
     }
 
     /**
@@ -134,8 +130,9 @@ public class ManejadorFactura {
             else
                 System.out.println("Fecha no válida");
         } while (true);
-        Factura factura = new Factura(concepto, monto, iva, uuid, fecha, rfc);
-        facturasRecibidas.add(factura);
+
+        facturasRecibidas.add(new Factura(concepto, monto, iva, uuid, fecha, rfc));
+        System.out.println("El UUID de la factura es: " + uuid);
     }
 
     public void eliminarFacturaRecibida () {
@@ -227,8 +224,9 @@ public class ManejadorFactura {
             else
                 System.out.println("Fecha no válida");
         } while (true);
-        Factura factura = new Factura(concepto, monto, iva, uuid, fecha, rfc);
-        facturasEmitidas.add(factura);
+
+        facturasEmitidas.add(new Factura(concepto, monto, iva, uuid, fecha, rfc));
+        System.out.println("El UUID de la factura es: " + uuid);
     }
 
     public void buscarFacturaRecibida (String uuid) {

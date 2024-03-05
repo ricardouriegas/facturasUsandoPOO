@@ -3,7 +3,7 @@ package practica6;
 import java.io.Serializable;
 /**
  * @author Luis Roberto Flores
- * @Collaborator Joshua Nathaniel Arrazola Elizondo
+ * @Collaborator Uriegas
   */
 
 /**

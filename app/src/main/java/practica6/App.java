@@ -156,20 +156,24 @@ public class App{
 
     void mostrarDetalleFactura(){
         int opc;
-        Menus.menuMostrarDetalleFactura();
-        opc = Integer.parseInt(in.nextLine());
-        System.out.println("Ingrese el UUID de la factura: ");
-        String uuid = in.nextLine();
-
-        switch (opc) {
-            case 1: // Mostrar detalle de factura recibida
-                mf.buscarFacturaRecibida(uuid);
-                break;
-            case 2: // Mostrar detalle de factura emitida
-                mf.buscarFacturaEmitida(uuid);
-                break;
-            default:
-                break;
-        }
+        String uuid;
+        do {
+            Menus.menuMostrarDetalleFactura();
+            opc = Integer.parseInt(in.nextLine());
+            switch (opc) {
+                case 1: // mostrar detalle de factura recibida
+                    System.out.println("Ingrese el UUID de la factura: ");
+                    uuid = in.nextLine();
+                    mf.buscarFacturaRecibida(uuid);
+                    break;
+                case 2: // mostrar detalle de factura emitida
+                    System.out.println("Ingrese el UUID de la factura: ");
+                    uuid = in.nextLine();
+                    mf.buscarFacturaEmitida(uuid);
+                    break;
+                default:
+                    break;
+            }
+        } while (opc != 0);
     }
 };
