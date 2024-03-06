@@ -2,7 +2,6 @@ package practica6;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -53,8 +52,8 @@ public class ManejadorFactura {
     }
 
     public Boolean verificarRandomString (String rs) {
-        for(Factura p : facturasEmitidas) if(rs == p.getUUID()) return false;
-        for(Factura p : facturasRecibidas) if(rs == p.getUUID()) return false;
+        for(Factura p : facturasEmitidas) if(rs.equals(p.getUUID())) return false;
+        for(Factura p : facturasRecibidas) if(rs.equals(p.getUUID())) return false;
         return true;
     }
 
@@ -100,7 +99,6 @@ public class ManejadorFactura {
     /**
      * Función para agregar una nueva factura
       */
-    @SuppressWarnings("static-access")
     public void agregarFacturaRecibida (String rfc) {
         System.out.println("=== Usuario encontrado con éxito ===");
         
@@ -123,34 +121,33 @@ public class ManejadorFactura {
         } while (true);
 
         System.out.println("Ingresa la fecha de la factura en formato (dd/mm/yyyy): ");
-        Fecha fecha;
+        Fecha fecha = Fecha.de(in.nextLine());
         do {
+            if(fecha!=null) break;
+            System.out.println("Fecha inválida: ");
             fecha = Fecha.de(in.nextLine());
-            if(fecha.esValida(fecha.getAño(), fecha.getMes(), fecha.getDia()))
-                break;
-            else
-                System.out.println("Fecha no válida");
         } while (true);
 
         facturasRecibidas.add(new Factura(concepto, monto, iva, uuid, fecha, rfc));
         System.out.println("El UUID de la factura es: " + uuid);
     }
 
-    public void eliminarFacturaRecibida() {
-        System.out.println("Ingresa el UUID de la factura a eliminar: ");
-        String uuid = in.nextLine();
-        
-        Iterator<Factura> iterator = facturasRecibidas.iterator();
-        while (iterator.hasNext()) {
-            Factura factura = iterator.next();
-            if (factura.getUUID().equals(uuid)) {
-                iterator.remove(); // Utilizando el método remove del iterador
-                System.out.println("Factura removida exitosamente");
+    public void eliminarFacturaRecibida(String uuid) {
+        Factura p = null;
+
+        for(Factura d : facturasRecibidas){
+            if(d.getUUID().equals(uuid)){
+                p = d;
                 break;
             }
         }
-        save();
-        System.out.println("No se encontró la factura");
+
+        if(p == null){
+            System.out.println("No se encontró la factura");
+            return;
+        }
+
+        facturasRecibidas.remove(p); 
     }
     
     public void eliminarFacturaEmitida () {
@@ -230,10 +227,8 @@ public class ManejadorFactura {
         Fecha fecha;
         do {
             fecha = Fecha.de(in.nextLine());
-            if(fecha.esValida(fecha.getAño(), fecha.getMes(), fecha.getDia()))
-                break;
-            else
-                System.out.println("Fecha no válida");
+            if(fecha==null) break;
+            System.out.println("Ingrese una fecha válida");
         } while (true);
 
         facturasEmitidas.add(new Factura(concepto, monto, iva, uuid, fecha, rfc));

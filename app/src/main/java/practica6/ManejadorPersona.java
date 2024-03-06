@@ -117,10 +117,11 @@ public class ManejadorPersona {
  * @return Boolean
  */
     public Boolean esRfcUnico(String rfc){
+        if(personaInicial==null) return true;
         if(personaInicial.getRfc().equals(rfc)) return false;
 
         for(Persona p : list) 
-            if(p.getRfc().equals(rfc) || p.getRfc().equals(personaInicial.getRfc())) 
+            if(p!=null&&(p.getRfc().equals(rfc) || p.getRfc().equals(personaInicial.getRfc()))) 
                 return false;
         return true;
     }

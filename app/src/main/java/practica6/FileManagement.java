@@ -26,8 +26,6 @@ public class FileManagement {
      * @param clazz Especificación de la clase del ArrayList
       */
     public static <T> void serialize(String path, ArrayList<T> list, Class<T> clazz){
-        if(list.size()==0) return;
-
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path))){
             oos.writeObject(list);
         } catch (Exception e) { }
@@ -38,7 +36,7 @@ public class FileManagement {
             oos.writeObject(p);
         } catch(Exception e) {}
     }
-
+    
     /**
      * Función que gestiona la recuperación de la información de los .obj (Proceso de deserialización)
      * 

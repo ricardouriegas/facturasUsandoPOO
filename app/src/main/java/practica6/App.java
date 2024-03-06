@@ -107,9 +107,9 @@ public class App{
         } while (opc != 0);
     }
 
-    @SuppressWarnings("null")
     void gestionFacturasRecibidas(){
         int opc;
+        
         do {
             Menus.mostrarMenuGestionFacturasRecibidas();
             opc = Integer.parseInt(in.nextLine());
@@ -126,12 +126,15 @@ public class App{
                     if(persona==null) {
                         System.out.println("No se encontró la persona indicada");
                         break;
+                    } else {
+                        mf.agregarFacturaRecibida(persona.getRfc());
                     }
                     
-                    mf.agregarFacturaRecibida(persona.getRfc());
                     break;
                 case 3: 
-                    mf.eliminarFacturaRecibida();
+                    System.out.println("Ingrese el UUID de la factura a borrar: ");
+                    String uuid = in.nextLine();
+                    mf.eliminarFacturaRecibida(uuid);
                     break;
                 default:
                     break;
