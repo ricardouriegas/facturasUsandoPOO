@@ -232,7 +232,15 @@ public class ManejadorFactura {
         System.out.println("El UUID de la factura es: " + uuid);
     }
 
-    public void buscarFacturaRecibida (String uuid) {
+    public void buscarFacturaRecibida () {
+        if (facturasRecibidas.isEmpty()){
+            System.out.println("No hay facturas recibidas aun");
+            return;
+        }
+
+        System.out.println("Ingrese el UUID de la factura: ");
+        String uuid = in.nextLine();
+        
         for(Factura f : facturasRecibidas){
             if(f.getUUID().equals(uuid)){
                 System.out.println(f.toString());
@@ -242,7 +250,16 @@ public class ManejadorFactura {
         }
     }
 
-    public void buscarFacturaEmitida (String uuid) {
+    public void buscarFacturaEmitida () {
+        // if empty 
+        if (facturasEmitidas.isEmpty()){
+            System.out.println("No hay facturas emitidas aun");
+            return;
+        }
+
+        System.out.println("Ingrese el UUID de la factura: ");
+        String uuid = in.nextLine();
+
         for(Factura f : facturasEmitidas){
             if(f.getUUID().equals(uuid)){
                 System.out.println(f.toString());

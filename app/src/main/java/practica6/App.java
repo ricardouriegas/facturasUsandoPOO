@@ -19,6 +19,8 @@ public class App{
 
         int opc = 0;
         do {
+            // clear screen
+            System.out.println("\033[H\033[2J");
             System.out.println("=== Bienvenido al Sistema de Facturas de Ficticia S.A. de C.V. ===");
             Menus.mostrarMenuPrincipal();
             try {
@@ -142,6 +144,7 @@ public class App{
 
     void gestionFacturasEmitidas () {
         int opc;
+
         do {
             Menus.mostrarMenuGestionFacturasEmitidas();
             opc = Integer.parseInt(in.nextLine());
@@ -164,20 +167,16 @@ public class App{
 
     void mostrarDetalleFactura(){
         int opc;
-        String uuid;
+        
         do {
             Menus.menuMostrarDetalleFactura();
             opc = Integer.parseInt(in.nextLine());
             switch (opc) {
                 case 1: // mostrar detalle de factura recibida
-                    System.out.println("Ingrese el UUID de la factura: ");
-                    uuid = in.nextLine();
-                    mf.buscarFacturaRecibida(uuid);
+                    mf.buscarFacturaRecibida();
                     break;
                 case 2: // mostrar detalle de factura emitida
-                    System.out.println("Ingrese el UUID de la factura: ");
-                    uuid = in.nextLine();
-                    mf.buscarFacturaEmitida(uuid);
+                    mf.buscarFacturaEmitida();
                     break;
                 default:
                     break;

@@ -85,14 +85,13 @@ public class Factura implements Serializable {
 
     @Override
     public String toString() {
-        return "Factura{" +
-                "\n\tconcepto=" + concepto +
-                "\n\tmonto=" + monto +
-                "\n\tiva=" + iva +
-                "\n\tmontoTotal=" + montoTotal +
-                "\n\tUUID=" + UUID + 
-                "\n\tfecha=" + fecha +
-                "\n\trfc=" + rfc + 
-                "\n}";
+        return "==Factura==" +
+                "\n\tConcepto: " + concepto +
+                "\n\tMonto: " + monto +
+                "\n\tIVA: " + iva +
+                "\n\tMonto Total:" + montoTotal +
+                "\n\tUUID: " + UUID + 
+                "\n\tFecha: " + fecha +
+                "\n\tRFC: " + rfc;
     }
 }
