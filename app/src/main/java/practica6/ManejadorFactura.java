@@ -132,22 +132,19 @@ public class ManejadorFactura {
         System.out.println("El UUID de la factura es: " + uuid);
     }
 
-    public void eliminarFacturaRecibida(String uuid) {
-        Factura p = null;
+    public void eliminarFacturaRecibida() {
+        System.out.println("Ingrese el UUID de la factura a borrar: ");
+        String uuid = in.nextLine();
 
-        for(Factura d : facturasRecibidas){
-            if(d.getUUID().equals(uuid)){
-                p = d;
-                break;
+        for(Factura f : facturasRecibidas){
+            if(f.getUUID().equals(uuid)){
+                facturasRecibidas.remove(f);
+                System.out.println("Factura encontrada y eliminada con éxito");
+                return;
             }
         }
 
-        if(p == null){
-            System.out.println("No se encontró la factura");
-            return;
-        }
-
-        facturasRecibidas.remove(p); 
+        System.out.println("No se encontró la factura");
     }
     
     public void eliminarFacturaEmitida () {

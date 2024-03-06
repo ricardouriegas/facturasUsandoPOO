@@ -131,10 +131,8 @@ public class App{
                     }
                     
                     break;
-                case 3: 
-                    System.out.println("Ingrese el UUID de la factura a borrar: ");
-                    String uuid = in.nextLine();
-                    mf.eliminarFacturaRecibida(uuid);
+                case 3: // Eliminar Factura Recibida
+                    mf.eliminarFacturaRecibida();
                     break;
                 default:
                     break;
