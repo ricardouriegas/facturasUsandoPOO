@@ -148,6 +148,11 @@ public class ManejadorFactura {
     }
     
     public void eliminarFacturaEmitida () {
+        if(facturasEmitidas.isEmpty()){
+            System.out.println("No hay facturas emitidas registradas");
+            return;
+        }
+        
         System.out.println("Ingresa el UUID de la factura a eliminar: ");
         String uuid = in.nextLine();
 
@@ -199,8 +204,6 @@ public class ManejadorFactura {
     }
 
     public void agregarFacturaEmitida (String rfc) {
-        System.out.println("=== Usuario encontrado con éxito ===");
-        
         String uuid = generateRandomString();
 
         System.out.println("Ingresa el concepto de la factura: ");
@@ -234,7 +237,7 @@ public class ManejadorFactura {
 
     public void buscarFacturaRecibida () {
         if (facturasRecibidas.isEmpty()){
-            System.out.println("No hay facturas recibidas aun");
+            System.out.println("No hay facturas recibidas registradas");
             return;
         }
 
@@ -253,7 +256,7 @@ public class ManejadorFactura {
     public void buscarFacturaEmitida () {
         // if empty 
         if (facturasEmitidas.isEmpty()){
-            System.out.println("No hay facturas emitidas aun");
+            System.out.println("No hay facturas emitidas registradas");
             return;
         }
 

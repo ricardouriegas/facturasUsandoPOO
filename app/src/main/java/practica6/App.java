@@ -2,6 +2,17 @@ package practica6;
 
 import java.util.Scanner;
 
+/**
+ * ==============================
+ *  Asignatura: Fundamentos de POO
+ * ==============================
+ * 
+ * Proyecto: Manejador de facturas
+ * @author Joshua Nathaniel Arrazola Elizondo
+ * @author Hector Israel Cruz Resendez
+ * @author Alex Emil Resendiz García
+ * @author Ricardo Emmanuel Uriegas Ibarra
+  */
 public class App{
     private final Scanner in = new Scanner(System.in);
 
