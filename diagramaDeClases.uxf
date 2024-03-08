@@ -1,0 +1,96 @@
+<diagram program="umletino" version="15.1"><zoom_level>7</zoom_level><help_text>Space for diagram </help_text><element><id>UMLClass</id><coordinates><x>812</x><y>497</y><w>147</w><h>133</h></coordinates><panel_attributes>*Persona*
+--
+- nombre: String
+- apellido: String
+- rfc: String
+- direccion fiscal: String
+- email: String
+- esPersonaFisica : Boolean	
+--
++ toString()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>336</x><y>686</y><w>147</w><h>133</h></coordinates><panel_attributes>*Factura*
+--
+- concepto: String
+- monto: Double
+- IVA: Double
+- montoTotal: Double
+- UUID: String
+- Fecha: Date
+- RFC: RFC
+--
++ toString()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>399</x><y>637</y><w>21</w><h>63</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>252</x><y>392</y><w>259</w><h>252</h></coordinates><panel_attributes>*ManejadorFactura*
+--
+- String: appPath
+- String: facturasRecibidasFile
+- String: facturasEmitidasFile
+- String: CHARACTERS
+- ArrayList&lt;Factuta&gt;: facturasRecibidas
+- ArrayList&lt;Factuta&gt;: facturasEmitidas
+--
++ ManejadorFactura()
++ save()
++ generateRandomString(): String
++ verificarRandomString(String: rs): Boolean
++ listarFacturasRecibidas()
++ agregarFacturaRecibida(String: rfc)
++ eliminarFacturaRecibida(String: uuid)
++ eliminarFacturaEmitida()
++ listarFacturasEmitadas()
++ agregarFacturaEmitida(String: rfc)
++ buscarFacturaRecibida(String: uuid)
++ buscarFacturaEmitida(String: uuid)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>588</x><y>210</y><w>161</w><h>217</h></coordinates><panel_attributes>*ManejadorPersona*
+--
+- String: appPath
+- String personasFiscalesFile
+- String: personaInicialObj
+- ArrayList&lt;Persona&gt;: List
+- Persona: personaInicial
+--
++ ManejadorPersona()
++ imprimirPersonaInicial(): String
++ crearUsuario(): Persona
++ agregarPersona(Persona: p)
++ buscarPersona(String: rfc): Persona
++ esRFCUnico(String: rfc): Boolean
++ buscarPersona(String: rfc): Persona
++ modificarPersona(String: rfc)
++ eliminarPersona(String: rfc)
++ mostrarPersonas()
++ modificarUsuarioInicial()
++ save()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>553</x><y>497</y><w>238</w><h>133</h></coordinates><panel_attributes>*FileManagement*
+--
+--
++ serialize(String: path, ArrayList&lt;T&gt;: List, Class&lt;T&gt;: clazz)
++ deserialize(String: parh, Class&lt;T&gt;: clazz)
++ verificacionInicial()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>658</x><y>420</y><w>21</w><h>91</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>742</x><y>266</y><w>154</w><h>245</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;200;10;200;330</additional_attributes></element><element><id>UMLClass</id><coordinates><x>847</x><y>7</y><w>147</w><h>133</h></coordinates><panel_attributes>*Menus*
+--
+--
++ mostrarmenuPrincipal()
++ mostrarmenuDatosFiscales()
++ mostrarmenuCatalogoPersonasFiscales()
++ menuGestionFacturasRecibidas()
++ menuGestionFacturasEmitidas()
++ menuModificarDatosFiscales()
++ menuListarFacturasRecibida()
++ menuMostrarDetalleFactura()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>728</x><y>56</y><w>133</w><h>28</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;170;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>588</x><y>0</y><w>147</w><h>133</h></coordinates><panel_attributes>*Main*
+--
+--
++ datosFiscalesEmpresa()
++ catalogoPersonasFiscales()
++ gestionFacturasRecibidas()
++ gestionFacturasEmitidas()
++ mostrarDetalleFactura()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>658</x><y>126</y><w>21</w><h>98</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>UMLClass</id><coordinates><x>567</x><y>686</y><w>189</w><h>133</h></coordinates><panel_attributes>*Fecha*
+--
+- int: año
+- int: mes
+- int: dia
+--
++ de(int: año, int: mes, int: dia): Fecha
++ de(String: fechaStr): Fecha
++ esValida(int: año, int: mes, int: dia): Boolean
++ esAñoBisiesto(int: año): Boolean
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>476</x><y>728</y><w>105</w><h>28</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>833</x><y>728</y><w>105</w><h>63</h></coordinates><panel_attributes>*NumerosUtil*
+--
+--
++ getInt(String: s): int</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>749</x><y>742</y><w>98</w><h>28</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;120;20</additional_attributes></element><element><id>Relation</id><coordinates><x>371</x><y>63</y><w>231</w><h>343</h></coordinates><panel_attributes></panel_attributes><additional_attributes>310;10;10;10;10;470</additional_attributes></element><element><id>Relation</id><coordinates><x>504</x><y>560</y><w>63</w><h>28</h></coordinates><panel_attributes></panel_attributes><additional_attributes>70;20;10;20</additional_attributes></element></diagram>
